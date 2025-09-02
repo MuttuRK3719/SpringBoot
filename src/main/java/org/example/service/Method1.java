@@ -14,7 +14,7 @@ public class Method1 {
 //        employee.greeting();
         //by using method name
 //        Employee employee1=(Employee) context.getBean("getEmployee1");
-        Employee employee1 = context.getBean("getEmp", Employee.class);
+        Employee employee1 = context.getBean(Employee.class);
         employee1.greeting();
         Departments dept=context.getBean(Departments.class);
         System.out.println(dept.departmentName());

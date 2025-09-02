@@ -1,10 +1,14 @@
 package org.example.repository;
 
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class Employee {
     private String deptName;
 
-    public Employee(String deptName) {
-        this.deptName = deptName;
+    public Employee() {
+        this.deptName = "IT";
     }
 
     public String getDeptName() {
