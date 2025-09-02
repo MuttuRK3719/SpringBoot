@@ -10,7 +10,7 @@ public class SpringConfig {
     public Employee getEmployee(){
         return  new Employee();
     }
-    @Bean
+    @Bean("getEmp")
     public Employee getEmployee1(){
         return  new Employee();
     }

@@ -12,7 +12,8 @@ public class Method1 {
 //        Employee employee=context.getBean(Employee.class);
 //        employee.greeting();
         //by using method name
-        Employee employee1=(Employee) context.getBean("getEmployee1");
+//        Employee employee1=(Employee) context.getBean("getEmployee1");
+        Employee employee1=context.getBean("getEmp",Employee.class);
         employee1.greeting();
     }
 }
