@@ -10,4 +10,9 @@ public class SpringConfig {
     public Employee getEmployee(){
         return  new Employee();
     }
+    @Bean
+    public Employee getEmployee1(){
+        return  new Employee();
+    }
+
 }

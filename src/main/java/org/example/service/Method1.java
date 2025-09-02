@@ -9,7 +9,10 @@ public class Method1 {
     public static void main(String[] args) {
         //the bean is created when we call application context
         ApplicationContext context=new AnnotationConfigApplicationContext(SpringConfig.class);
-        Employee employee=context.getBean(Employee.class);
-        employee.greeting();
+//        Employee employee=context.getBean(Employee.class);
+//        employee.greeting();
+        //by using method name
+        Employee employee1=(Employee) context.getBean("getEmployee1");
+        employee1.greeting();
     }
 }
