@@ -5,10 +5,12 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class IT implements Departments {
-    private Employee employee;
+    private Person employee;
     @Autowired
-    public IT(Employee employee) {
+    public IT(Person employee) {
         this.employee = employee;
+        System.out.println("IT  Constructor is created");
+
     }
 
     @Override
