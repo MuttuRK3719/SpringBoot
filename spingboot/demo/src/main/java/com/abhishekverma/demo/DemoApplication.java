@@ -28,6 +28,5 @@ public class DemoApplication implements CommandLineRunner {
         System.out.println("Enter  id");
         service.setId(sc.nextInt());
         logger.info(service.findOwner());
-
     }
 }

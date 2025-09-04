@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 public class OwnerServiceImp implements OwnerService {
     @Autowired
     OwnerRepository ownerRepository;
-    @Value("10")
+    @Value("${demo.ownerid}")
     private int ownerId;
 
     public OwnerServiceImp() {
