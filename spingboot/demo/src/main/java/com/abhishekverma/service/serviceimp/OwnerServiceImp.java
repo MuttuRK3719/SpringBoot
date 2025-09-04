@@ -1,5 +1,6 @@
 package com.abhishekverma.service.serviceimp;
 
+import com.abhishekverma.exception.OwnerNotFoundException;
 import com.abhishekverma.repository.OwnerRepository;
 import com.abhishekverma.service.OwnerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +8,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
-@Scope("prototype")
 @Service
 public class OwnerServiceImp implements OwnerService {
     @Autowired
@@ -20,7 +20,7 @@ public class OwnerServiceImp implements OwnerService {
     }
 
     @Override
-    public String findOwner() {
+    public String findOwner() throws OwnerNotFoundException {
         return ownerRepository.findOwner(ownerId);
     }
 
@@ -28,4 +28,5 @@ public class OwnerServiceImp implements OwnerService {
     public void setId(int id) {
         ownerId = id;
     }
+
 }
