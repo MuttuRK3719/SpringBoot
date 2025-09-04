@@ -6,19 +6,19 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Repository;
-@Profile("production")
+@Profile("local")
 @PropertySource("message.properties")
 @Repository
-public class OwnerRepositoryImp implements OwnerRepository {
+public class OwnerRepositoryImp1 implements OwnerRepository {
     @Value("${owner.found}")
     String ownerFound;
     @Override
     public String findOwner(int ownerId) throws OwnerNotFoundException {
         if (ownerId % 2 == 1) throw new OwnerNotFoundException();
-        return String.format(ownerFound, ownerId);
+        return String.format("local "+ownerFound, ownerId);
     }
 
-    public OwnerRepositoryImp() {
+    public OwnerRepositoryImp1() {
         System.out.println("OwnerRepositoryImp bean is created ");
     }
 }
