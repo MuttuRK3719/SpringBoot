@@ -6,7 +6,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Repository;
-@Profile("production")
+@Profile("default")
+//@Profile("production")
 @PropertySource("message.properties")
 @Repository
 public class OwnerRepositoryImp implements OwnerRepository {
@@ -15,7 +16,7 @@ public class OwnerRepositoryImp implements OwnerRepository {
     @Override
     public String findOwner(int ownerId) throws OwnerNotFoundException {
         if (ownerId % 2 == 1) throw new OwnerNotFoundException();
-        return String.format(ownerFound, ownerId);
+        return String.format("Production "+ownerFound, ownerId);
     }
 
     public OwnerRepositoryImp() {

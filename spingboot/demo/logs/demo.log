@@ -1,4 +1,0 @@
-2025-09-04T11:40:41.001+05:30  INFO 17136 --- [demo] [main] com.abhishekverma.demo.DemoApplication   : Starting DemoApplication using Java 23.0.1 with PID 17136 (C:\Users\Dell\OneDrive\Desktop\spingboot\demo\target\classes started by Dell in C:\Users\Dell\OneDrive\Desktop\spingboot\demo)
-2025-09-04T11:40:41.014+05:30  INFO 17136 --- [demo] [main] com.abhishekverma.demo.DemoApplication   : No active profile set, falling back to 1 default profile: "default"
-2025-09-04T11:40:42.651+05:30  INFO 17136 --- [demo] [main] com.abhishekverma.demo.DemoApplication   : Started DemoApplication in 2.699 seconds (process running for 3.445)
-2025-09-04T11:40:43.825+05:30  INFO 17136 --- [demo] [main] com.abhishekverma.demo.DemoApplication   : Found owner with owner id 12
