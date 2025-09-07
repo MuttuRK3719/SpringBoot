@@ -1,0 +1,57 @@
+#spring:
+#  application:
+#    name: demo
+#  profiles:
+#    active: production
+#
+#logging:
+#  file:
+#    name: logs/${spring.application.name}.log
+#
+#---
+#spring:
+#  config:
+#    activate:
+#      on-profiles: local
+#logging:
+#  file:
+#    name: logs/local.log
+#  logback:
+#    rollingpolicy:
+#      file-name-pattern: logs/${spring.application.name}-%d{yyyy-MM-dd}-%i.gz
+#      max-file-size: 1KB
+#---
+#spring:
+#  config:
+#    activate:
+#      on-profiles: production
+#logging:
+#  file:
+#    name: logs/production.log
+#  logback:
+#    rollingpolicy:
+#      file-name-pattern: logs/${spring.application.name}-%d{yyyy-MM-dd}-%i.gz
+#      max-file-size: 1KB
+spring:
+  application:
+    name: GreetingApplication
+  profiles:
+    active: Kannada
+
+---
+spring:
+  config:
+    activate:
+      on-profiles: Kannada
+
+---
+spring:
+  config:
+    activate:
+      on-profiles: English
+
+---
+spring:
+  config:
+    activate:
+      on-profiles: Hindi
