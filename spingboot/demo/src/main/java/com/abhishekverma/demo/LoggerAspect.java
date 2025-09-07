@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class LoggerAspect {
     private final Logger LOGGER = LoggerFactory.getLogger(LoggerAspect.class);
+//    @Pointcut("execution( * *.*.*.*.*.*())")
 
     @Pointcut("execution(public String com.abhishekverma.service.serviceimp.OwnerServiceImp.findOwner())")
     public void injectExpression() {
