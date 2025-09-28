@@ -4,7 +4,8 @@ import com.api.exception.OwnerNotFoundException;
 import com.api.service.OwnerService;
 import lombok.RequiredArgsConstructor;
 
-import org.springframework.stereotype.Controller;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -15,56 +16,65 @@ public class OwnerController {
 
     private final OwnerService ownerService;
 
-//    @RequestMapping(method = RequestMethod.GET)
+    //    @RequestMapping(method = RequestMethod.GET)
     @GetMapping
-    public String findOwner() {
+    public ResponseEntity<String> findOwner() {
         try {
-            return ownerService.findOwner();
+            String response = ownerService.findOwner();
+            return ResponseEntity.status(HttpStatus.OK).body(response);
         } catch (OwnerNotFoundException e) {
-            return e.getMessage();
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     }
 
-//    @RequestMapping(method = RequestMethod.POST)
+    //    @RequestMapping(method = RequestMethod.POST)
     @PostMapping
-    public String saveOwner() {
-        return ownerService.saveOwner();
+    public ResponseEntity<String> saveOwner() {
+        String response = ownerService.saveOwner();
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
-//    @RequestMapping(method = RequestMethod.PUT)
+    //    @RequestMapping(method = RequestMethod.PUT)
     @PutMapping
-    public String updateOwner() {
+    public ResponseEntity<String> updateOwner() {
         try {
-            return ownerService.updateOwner();
+            String response = ownerService.updateOwner();
+            return ResponseEntity.status(HttpStatus.OK).body(response);
         } catch (OwnerNotFoundException e) {
-            return e.getMessage();
+            String response = e.getMessage();
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
     }
 
-//    @RequestMapping(method = RequestMethod.PATCH)
+    //    @RequestMapping(method = RequestMethod.PATCH)
     @PatchMapping
-    public String updatePetDetails() {
+    public ResponseEntity<String> updatePetDetails() {
         try {
-            return ownerService.updatePetDetails();
+            String response = ownerService.updatePetDetails();
+            return ResponseEntity.status(HttpStatus.OK).body(response);
         } catch (OwnerNotFoundException e) {
-            return e.getMessage();
+            String response = e.getMessage();
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
     }
 
-//    @RequestMapping(method = RequestMethod.DELETE)
+    //    @RequestMapping(method = RequestMethod.DELETE)
     @DeleteMapping
-    public String deleteOwner() {
+    public ResponseEntity<String> deleteOwner() {
         try {
-            return ownerService.deleteOwner();
+            String response = ownerService.deleteOwner();
+            return ResponseEntity.status(HttpStatus.OK).body(response);
         } catch (OwnerNotFoundException e) {
-            return e.getMessage();
+            String response = e.getMessage();
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
     }
 
-//    @RequestMapping(value = "/all", method = RequestMethod.GET)
+    //    @RequestMapping(value = "/all", method = RequestMethod.GET)
     @GetMapping("/all")
-    public String findAllOwners() {
-        return ownerService.findAllOwners();
+    public ResponseEntity<String> findAllOwners() {
+        String response = ownerService.findAllOwners();
+        return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
 }
