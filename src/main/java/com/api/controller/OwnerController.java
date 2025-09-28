@@ -5,20 +5,18 @@ import com.api.service.OwnerService;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 
 @RequestMapping(value = "/owners")
-@Controller
 @RequiredArgsConstructor
+@RestController //@Controller + @ResponseBody
 public class OwnerController {
 
     private final OwnerService ownerService;
 
-    @ResponseBody
-    @RequestMapping( method = RequestMethod.GET)
+//    @RequestMapping(method = RequestMethod.GET)
+    @GetMapping
     public String findOwner() {
         try {
             return ownerService.findOwner();
@@ -26,8 +24,15 @@ public class OwnerController {
             return e.getMessage();
         }
     }
-    @ResponseBody
-    @RequestMapping( method = RequestMethod.PUT)
+
+//    @RequestMapping(method = RequestMethod.POST)
+    @PostMapping
+    public String saveOwner() {
+        return ownerService.saveOwner();
+    }
+
+//    @RequestMapping(method = RequestMethod.PUT)
+    @PutMapping
     public String updateOwner() {
         try {
             return ownerService.updateOwner();
@@ -35,8 +40,9 @@ public class OwnerController {
             return e.getMessage();
         }
     }
-    @ResponseBody
-    @RequestMapping( method = RequestMethod.PATCH)
+
+//    @RequestMapping(method = RequestMethod.PATCH)
+    @PatchMapping
     public String updatePetDetails() {
         try {
             return ownerService.updatePetDetails();
@@ -44,8 +50,9 @@ public class OwnerController {
             return e.getMessage();
         }
     }
-    @ResponseBody
-    @RequestMapping(method = RequestMethod.DELETE)
+
+//    @RequestMapping(method = RequestMethod.DELETE)
+    @DeleteMapping
     public String deleteOwner() {
         try {
             return ownerService.deleteOwner();
@@ -53,8 +60,9 @@ public class OwnerController {
             return e.getMessage();
         }
     }
-    @ResponseBody
-    @RequestMapping(value = "/all", method = RequestMethod.GET)
+
+//    @RequestMapping(value = "/all", method = RequestMethod.GET)
+    @GetMapping("/all")
     public String findAllOwners() {
         return ownerService.findAllOwners();
     }
